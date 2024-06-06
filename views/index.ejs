@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form</title>
+    <link rel="stylesheet" href="./public/stylesheets/styel.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body>
+    <%- include('./partials/header') %>
+
+    <div class="flex flex-row  min-h-screen">
+      <%- include('./partials/aside') %>
+
+
+
+      
+      <div class="basis-9/12 p-3">
+        <div class="flex flex-row flex-wrap">
+          <% movies.map((movie)=>{ %>
+          <div class="basis-1/4 p-2">
+            <div class="card rounded-lg h-full overflow-hidden relative">
+              <a href="/information?id=<%= movie._id %>"><img class="cardImg h-full w-full hover:opacity-[0.5]" src="<%= movie.image %>" alt="image" /></a>
+              <h1 class="text-black"><%= movie.moviename %></h1>
+              <div class="cardText absolute left-1/2 top-[120%] transform -translate-x-1/2 -translate-y-1/2" >
+              </div>
+            </div>
+          </div>
+          <% }) %>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
